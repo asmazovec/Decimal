@@ -49,8 +49,8 @@
 
 Таким образом структура конечной десятичной дроби `DECIMAL` имеет 2 поля
 
-- `sll_int num`
-- `sss_int n`
+- `signed long long int num`
+- `signed char n`
 
 ### summarize ###
 
