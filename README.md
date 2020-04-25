@@ -28,11 +28,11 @@
 
 По определению: 
 
-- `Decimal :: {num * -denum / num∈ Z, denum∈ N, denum⋮ 10, n∈N}`.
+- `Decimal :: {num * -denum / num∈Z, denum∈N, denum⋮ 10, n∈N}`.
 
 Таким образом десятичную дробь можно представить в виде: 
 
-- `Decimal :: {num * 10^(-n) / x∈ Z, n∈ N}`, где:
+- `Decimal :: {num * 10^(-n) / x∈Z, n∈N}`, где:
 
     `num` - мантисса,
 
