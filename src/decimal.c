@@ -1,6 +1,6 @@
 #include "decimal.h"
 
-decimal summarize(decimal a, decimal b) {
+decimal summarize (decimal a, decimal b) {
     // Привести к общему порядку
     if (a.n > b.n) {
         for (int i = 0; i < a.n - b.n; i++) {
@@ -18,7 +18,8 @@ decimal summarize(decimal a, decimal b) {
     return a;
 }
 
-decimal subtract(decimal a, decimal b) {
+
+decimal subtract (decimal a, decimal b) {
     // Привести к общему порядку
     if (a.n > b.n) {
         for (int i = 0; i < a.n - b.n; i++) {
@@ -34,5 +35,15 @@ decimal subtract(decimal a, decimal b) {
 
     a.num -= b.num;
     
+    return a;
+}
+
+
+decimal multiply (decimal a, decimal b) {
+    // Перемножить мантиссы
+    a.num *= b.num;
+
+    // Сложить порядки
+    a.n += b.n;
     return a;
 }

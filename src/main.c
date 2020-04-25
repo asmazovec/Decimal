@@ -3,10 +3,12 @@
 
 int main() {
     decimal a = {11111, -2};
-    decimal b = {-11111, -3};
+    decimal b = {11111, -3};
 
     printf("%lldE%d\n", summarize(a, b).num, summarize(a, b).n);
     printf("%lldE%d\n", subtract(a, b).num, subtract(a, b).n);
+    printf("%lldE%d\n", multiply(a, b).num, multiply(a, b).n);
+
 
     return 0;
 }
