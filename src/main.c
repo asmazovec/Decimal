@@ -9,6 +9,11 @@ int main() {
     printf("%lldE%d\n", subtract(a, b).num, subtract(a, b).n);
     printf("%lldE%d\n", multiply(a, b).num, multiply(a, b).n);
 
+    decimal c = {101000, -5};
+    printf("%lldE%d\n", normalize(c).num, normalize(c).n);
 
+    decimal d = {10000000, -5};
+    printf("%lldE%d\n", normalize(d).num, normalize(d).n);
+    
     return 0;
 }

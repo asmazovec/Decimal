@@ -1,5 +1,18 @@
 #include "decimal.h"
 
+
+decimal normalize (decimal a) {
+    for (int i = a.n; i < 0; i++) {
+        if (a.num % 10 == 0) {
+            a.num /= 10;
+        } else {
+            break;
+        }
+    }
+    return a;
+}
+
+
 decimal summarize (decimal a, decimal b) {
     // Привести к общему порядку
     if (a.n > b.n) {
@@ -15,6 +28,7 @@ decimal summarize (decimal a, decimal b) {
     }
 
     a.num += b.num;
+    normalize(a);
     return a;
 }
 
@@ -34,7 +48,7 @@ decimal subtract (decimal a, decimal b) {
     }
 
     a.num -= b.num;
-    
+    normalize(a);
     return a;
 }
 
@@ -45,5 +59,7 @@ decimal multiply (decimal a, decimal b) {
 
     // Сложить порядки
     a.n += b.n;
+    normalize(a);
     return a;
 }
+

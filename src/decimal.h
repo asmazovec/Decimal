@@ -10,6 +10,8 @@ typedef struct {
     sss_int n;    // Порядок 
 } decimal;
 
+decimal normalize(decimal);
+
 decimal summarize(decimal, decimal);
 decimal subtract(decimal, decimal);
 decimal multiply(decimal, decimal);
