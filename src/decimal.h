@@ -11,5 +11,7 @@ typedef struct {
 } decimal;
 
 decimal summarize(decimal, decimal);
+decimal subtract(decimal, decimal);
+
 
 #endif /*DECIMAL_H_*/
