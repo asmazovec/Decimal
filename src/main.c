@@ -1,19 +1,65 @@
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 #include "decimal.h"
 
 int main() {
-    decimal a = {11111, -2};
-    decimal b = {11111, -3};
+    char input_s[256];
+    char number[20];
+    char* token;
 
-    printf("%lldE%d\n", summarize(a, b).num, summarize(a, b).n);
-    printf("%lldE%d\n", subtract(a, b).num, subtract(a, b).n);
-    printf("%lldE%d\n", multiply(a, b).num, multiply(a, b).n);
+    decimal a;
+    decimal b;
 
-    decimal c = {101000, -5};
-    printf("%lldE%d\n", normalize(c).num, normalize(c).n);
-
-    decimal d = {10000000, -5};
-    printf("%lldE%d\n", normalize(d).num, normalize(d).n);
     
+    ///// 1 Число
+    printf("Введите a\n>>> ");
+    fgets(input_s, 256, stdin);    
+    token = strtok (input_s, "., ");
+    strcpy (number, token);
+    
+    token = strtok (NULL, "., ");
+    strcat (number, token);
+
+    a.n = -strlen (token)+1;
+    a.num = strtoll (number, NULL, 10);
+
+
+    ///// 2 Число
+    printf("Введите b\n>>> ");
+    fgets(input_s, 256, stdin);    
+    token = strtok (input_s, "., ");
+    strcpy (number, token);
+    
+    token = strtok (NULL, "., ");
+    strcat (number, token);
+
+    b.n = -strlen (token)+1;
+    b.num = strtoll (number, NULL, 10);
+
+
+
+    //// Вычисления
+    decimal res;
+
+    res = summarize (a, b);         ////// ++++++++++++++++++
+    printf ("a + b = %+lld.%lld\n",
+            res.num / power10 (-res.n), 
+            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
+
+
+    res = subtract (a, b);
+    printf ("a - b = %+lld.%lld\n", ////// ------------------
+            res.num / power10 (-res.n), 
+            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
+
+
+    res = multiply (a, b);
+    printf ("a * b = %+lld.%lld\n", ////// ******************
+            res.num / power10 (-res.n), 
+            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
+
+
     return 0;
 }

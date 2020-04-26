@@ -10,11 +10,13 @@ typedef struct {
     sss_int n;    // Порядок 
 } decimal;
 
-decimal normalize(decimal);
+sll_int power10 (int);
 
-decimal summarize(decimal, decimal);
-decimal subtract(decimal, decimal);
-decimal multiply(decimal, decimal);
 
+decimal normalize (decimal);
+
+decimal summarize (decimal, decimal);
+decimal subtract (decimal, decimal);
+decimal multiply (decimal, decimal);
 
 #endif /*DECIMAL_H_*/
