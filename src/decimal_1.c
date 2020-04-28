@@ -1,5 +1,6 @@
-#include "decimal.h"
+#include "decimal_1.h"
 #include <stdio.h>
+
 
 sll_int power10 (int a) {
     sll_int b = 1;
@@ -10,7 +11,7 @@ sll_int power10 (int a) {
 }
 
 
-decimal normalize (decimal a) {
+decimal_1 normalize (decimal_1 a) {
     while (a.n < 0 && a.num % 10 == 0) {
         a.n++;
         a.num /= 10;
@@ -19,7 +20,8 @@ decimal normalize (decimal a) {
 }
 
 
-decimal summarize (decimal a, decimal b) {
+/* Сложение конечных десятичных дробей. */
+decimal_1 summarize (decimal_1 a, decimal_1 b) {
     a = normalize (a);
     b = normalize (b);
 
@@ -28,12 +30,14 @@ decimal summarize (decimal a, decimal b) {
     b.num *= power10 (((b.n-a.n)>0)? (b.n-a.n): 0);
     b.n = a.n = ((a.n-b.n)>0)? b.n: a.n;
 
+    // Найти сумму мантисс
     a.num += b.num;
     return normalize (a);
 }
 
 
-decimal subtract (decimal a, decimal b) {
+/* Разность конечных десятичных дробей. */
+decimal_1 subtract (decimal_1 a, decimal_1 b) {
     a = normalize (a);
     b = normalize (b);
 
@@ -42,12 +46,13 @@ decimal subtract (decimal a, decimal b) {
     b.num *= power10 (((b.n-a.n)>0)? (b.n-a.n): 0);
     b.n = a.n = ((a.n-b.n)>0)? b.n: a.n;
 
+    // Найти разность мантисс
     a.num -= b.num;
     return normalize (a);
 }
 
-
-decimal multiply (decimal a, decimal b) {
+/* Перемножение конечных десятичных дробей. */
+decimal_1 multiply (decimal_1 a, decimal_1 b) {
     a = normalize (a);
     b = normalize (b);
 

@@ -1,16 +1,17 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include "decimal.h"
+#include "decimal_1.h"
+
+
 
 int main() {
     char input_s[256];
     char number[20];
     char* token;
 
-    decimal a;
-    decimal b;
+    decimal_1 a;
+    decimal_1 b;
 
     
     ///// 1 Число
@@ -41,7 +42,7 @@ int main() {
 
 
     //// Вычисления
-    decimal res;
+    decimal_1 res;
 
     res = summarize (a, b);         ////// ++++++++++++++++++
     printf ("a + b = %+lld.%lld\n",
