@@ -1,65 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "decimal_1.h"
 
+#include "decimal_1.h"
+#include "decimal_2.h"
+
+
+typedef signed long long int sll_int;
+typedef signed char sss_int;
 
 
 int main() {
-    char input_s[256];
-    char number[20];
-    char* token;
 
     decimal_1 a;
     decimal_1 b;
-
     
-    ///// 1 Число
-    printf("Введите a\n>>> ");
-    fgets(input_s, 256, stdin);    
-    token = strtok (input_s, "., ");
-    strcpy (number, token);
-    
-    token = strtok (NULL, "., ");
-    strcat (number, token);
+    decimal_2 a;
+    decimal_2 b;
 
-    a.n = -strlen (token)+1;
-    a.num = strtoll (number, NULL, 10);
-
-
-    ///// 2 Число
-    printf("Введите b\n>>> ");
-    fgets(input_s, 256, stdin);    
-    token = strtok (input_s, "., ");
-    strcpy (number, token);
-    
-    token = strtok (NULL, "., ");
-    strcat (number, token);
-
-    b.n = -strlen (token)+1;
-    b.num = strtoll (number, NULL, 10);
-
-
-
-    //// Вычисления
-    decimal_1 res;
-
-    res = summarize (a, b);         ////// ++++++++++++++++++
-    printf ("a + b = %+lld.%lld\n",
-            res.num / power10 (-res.n), 
-            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
-
-
-    res = subtract (a, b);
-    printf ("a - b = %+lld.%lld\n", ////// ------------------
-            res.num / power10 (-res.n), 
-            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
-
-
-    res = multiply (a, b);
-    printf ("a * b = %+lld.%lld\n", ////// ******************
-            res.num / power10 (-res.n), 
-            res.num % power10 (-res.n) * ((res.num<0)? -1: 1));
 
 
     return 0;
