@@ -20,11 +20,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "llmath.h"
 
 
 typedef struct {
-    signed long long int num;   // Мантисса 
-    signed char n;              // Порядок 
+    sll_int num;     // Мантисса 
+    signed char n;   // Порядок 
 } decimal_1;
 
 
@@ -40,7 +41,7 @@ decimal_1 get_decimal_1 (decimal_1* dec, int num, FILE* filestream);
  * num - конечная десятичная дробь, которая будет выведена в файловый поток,
  * filestream - идентифицирует поток, в который передается поток вывода.
 */
-char* put_decimal_1 (decimal_1 num, FILE* filestream);
+int put_decimal_1 (decimal_1 num, FILE* filestream);
 
 
 decimal_1 summarize_1 (decimal_1, decimal_1);   // Сумма

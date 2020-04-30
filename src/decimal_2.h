@@ -21,12 +21,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "llmath.h"
 
 
 typedef struct {
-    signed long long integ;  // integer - целая часть
-    signed long long fract;  // fractional - дробная часть
-    signed char n;           // степень, число знаков после запятой
+    sll_int integ;      // integer - целая часть
+    sll_int fract;      // fractional - дробная часть
+    signed char n;      // степень, число знаков после запятой
 } decimal_2;
 
 
@@ -42,7 +43,7 @@ decimal_2 get_decimal_2 (decimal_2* dec, int num, FILE* filestream);
  * num - конечная десятичная дробь, которая будет выведена в файловый поток,
  * filestream - идентифицирует поток, в которой передается поток вывода.
 */
-char* put_decimal_2 (decimal_2 num, FILE* filestream);
+int put_decimal_2 (decimal_2 num, FILE* filestream);
 
 
 decimal_2 summarize_2 (decimal_2, decimal_2); // сумма
