@@ -5,7 +5,7 @@
 Варианты:
 
 1. Запустить `./make.sh` - скрипт для быстрой компиляции и запуска.
-2. Прописать вручную `gcc src/decimal_1.c src/main.c; ./a.out`. 
+2. Прописать вручную `gcc src/llmath.c src/decimal_2 src/decimal_1.c src/main.c; ./a.out`. 
 
 ## Задача ##
 
